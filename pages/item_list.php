@@ -35,12 +35,21 @@
                     $n = 0;
                     while ($data = mysqli_fetch_object($result)) {
                         $n = $n + 1;
-                        // Access data by column name
                         echo "<tr>
                                 <th scope='row'>$n</th>
                                 <td>$data->item_name</td>
                                 <td>$data->item_desc</td>
                                 <td>$data->created_at</td>
+                                <td>
+                                    <a href='update_item.php?edit_id=$data->id' class='btn btn-primary'>
+                                        <i class='fas fa-pencil-alt'></i> Edit
+                                    </a>
+                                </td>
+                                <td> 
+                                   <a href='delete_item.php?delete_id=$data->id' class='btn btn-danger' onclick=\"return confirm('Are you sure you want to delete this item?');\">
+                                        <i class='fas fa-trash-alt'></i> Delete
+                                    </a>
+                                </td>
                             </tr>";
                     }
                 }
