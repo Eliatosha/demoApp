@@ -27,7 +27,7 @@
                 <th scope="col">Item Name</th>
                 <th scope="col">Item Description</th>
                 <th scope="col">Created At</th>
-                <th>#</th>
+                <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -36,7 +36,6 @@
                     $n = 0;
                     while ($data = mysqli_fetch_object($result)) {
                         $n = $n + 1;
-                        // Access data by column name
                         echo "<tr>
                                 <th scope='row'>$n</th>
                                 <td>$data->item_name</td>
@@ -46,7 +45,10 @@
                                 <a href='edit_item.php?id=$data->id'>
                                 <button type='button' class='btn btn-secondary btn-lg'>Edit</button>
                                 </a>
-                                </td>
+                                <form action='delete_item.php' method='POST' style='display:inline;' onsubmit='return confirm(\"Are you sure you want to delete this item?\");'>
+                                <input type='hidden' name='id' value='" . htmlspecialchars($data->id, ENT_QUOTES, 'UTF-8') . "'>
+                                <button type='submit' class='btn btn-danger btn-lg'>Delete</button>
+                                </form>
                             </tr>";
                     }
                 }
