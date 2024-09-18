@@ -35,6 +35,7 @@
             </div>
             <div class="col-12">
                 <button type="submit" name="submit" class="btn btn-success">Save</button>
+                <a href="item_list.php"><button type="submit" name="submit" class="btn btn-success">View Items</button></a>
             </div>
         </form>
     </div>
