@@ -27,6 +27,7 @@
                 <th scope="col">Item Name</th>
                 <th scope="col">Item Description</th>
                 <th scope="col">Created At</th>
+                <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +42,10 @@
                                 <td>$data->item_name</td>
                                 <td>$data->item_desc</td>
                                 <td>$data->created_at</td>
+                                <td>
+                                    <a href='edit_item.php?id=$data->id' class='btn btn-primary btn-sm'>Edit</a>
+                                    <a href='delete_item.php?id=$data->id' class='btn btn-danger btn-sm'>Delete</a>
+                                </td>
                             </tr>";
                     }
                 }
